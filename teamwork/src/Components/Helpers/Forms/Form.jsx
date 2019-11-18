@@ -22,6 +22,24 @@ class Form extends Component {
     }
     throw response;
   };
+  setToken = () => {
+    let token = sessionStorage.getItem('token');
+    if (token) {
+      token = sessionStorage.getItem('token');
+    }
+    return token;
+  };
+  getAllHandler = (url) => {
+    const init = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.setToken()}`,
+      },
+    };
+    const response = fetch(url, init);
+    return response;
+  };
   postHandler = (data, url, event) => {
     event.preventDefault();
     const fetchData = {
@@ -29,7 +47,7 @@ class Form extends Component {
       body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Bearer ',
+        Authorization: `Bearer ${this.setToken()}`,
       },
     };
     const response = fetch(url, fetchData);

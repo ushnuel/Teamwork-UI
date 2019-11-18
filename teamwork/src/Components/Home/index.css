@@ -4,7 +4,8 @@
 .tm-img-home {
   width: 17rem;
 }
-.tm-desc-home {
+.tm-desc-home,
+.tm-interact-home {
   font-size: 2rem;
   font-family: Lato, sans-serif;
   color: #172735;
@@ -14,6 +15,16 @@
 .tm-color-word {
   color: rgb(28, 189, 28);
 }
-.tm-desc-home h1 {
+.tm-desc-home h1,
+.tm-interact-home h1 {
   margin: 0;
+}
+.tm-interact-home {
+  font-size: 1.3rem;
+  padding: 0.625rem;
+}
+.tm-home-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }

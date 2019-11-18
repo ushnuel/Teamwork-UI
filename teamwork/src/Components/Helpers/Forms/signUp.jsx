@@ -53,7 +53,9 @@ class SignUp extends Form {
       .postHandler(data, this.url, event)
       .then((response) => this.check(response))
       .then((data) => {
-        return this.setState({ success: false, successResponse: { ...data } });
+        this.setState({ success: false, successResponse: { ...data } });
+        sessionStorage.setItem('token', this.state.successResponse.data.token);
+        return;
       })
       .catch((error) => {
         error.json().then((body) => {

@@ -43,7 +43,8 @@ class SignIn extends Form {
       .then((response) => this.check(response))
       .then((data) => {
         this.setState({ success: false, successResponse: { ...data } });
-        this.props.history.push('/');
+        sessionStorage.setItem('token', this.state.successResponse.data.token);
+        this.props.history.push('/home');
         return;
       })
       .catch((error) => {
