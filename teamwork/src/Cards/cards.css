@@ -1,0 +1,30 @@
+.tm-value-card-container {
+  margin-top: 3.25rem;
+}
+.tm-value-card {
+  width: 100%;
+  margin-top: 1.625rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 0.7rem 0 rgba(0, 0, 0, 0.03);
+}
+.tm-value {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+.tm-value h1 {
+  font-size: 2rem;
+  margin: 0;
+  font-family: Lato, sans-serif;
+  color: rgb(69, 75, 69);
+}
+.tm-core-value-image {
+  height: 3rem;
+  width: 3rem;
+}
+.tm-value-writeup {
+  padding: 0.5rem;
+}

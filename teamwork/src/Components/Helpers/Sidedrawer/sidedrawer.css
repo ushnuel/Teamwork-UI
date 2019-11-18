@@ -1,0 +1,31 @@
+.tm-sideDrawer {
+  width: 16rem;
+  max-width: 70%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 240;
+  left: 0;
+  background-color: white;
+  box-sizing: border-box;
+  padding-top: 0.5rem;
+  transition: transform 0.4s ease-out;
+}
+.tm-sidedrawer-hr {
+  margin-top: 0.4rem;
+  border-color: rgb(255, 0, 179);
+}
+
+.tm-open {
+  transform: translateX(0);
+}
+
+.tm-close {
+  transform: translateX(-100%);
+}
+
+@media (min-width: 500px) {
+  .SideDrawer {
+    display: none;
+  }
+}
