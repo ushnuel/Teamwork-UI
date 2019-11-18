@@ -1,0 +1,21 @@
+.tm-btn-info,
+.tm-btn-danger,
+.tm-btn-success,
+.tm-btn-primary {
+  border-radius: 0.3rem;
+  padding: 0.7rem 0.5rem;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  background: rgb(206, 188, 188);
+  border: none;
+}
+.tm-btn-success {
+  background: rgb(28, 189, 28);
+}
+.tm-btn-danger {
+  background: rgb(248, 22, 22);
+}
+.tm-btn-primary {
+  background: rgb(255, 0, 179);
+}

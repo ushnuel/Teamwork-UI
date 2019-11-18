@@ -1,0 +1,45 @@
+.tm-form small {
+  display: none;
+  color: red;
+}
+.tm-form span {
+  color: red;
+}
+.tm-form input:focus {
+  border: none;
+}
+.tm-error-class,
+.tm-success-class {
+  position: relative;
+  background-color: rgb(206, 45, 45);
+  padding: 0.625rem;
+  color: white;
+  box-sizing: border-box;
+  margin-top: 0.625rem;
+  border-radius: 0.6rem;
+  text-align: center;
+}
+.tm-success-class {
+  background-color: green;
+}
+.tm-form input,
+.tm-form select,
+.tm-form select option {
+  padding: 0.625rem 0.5rem;
+  margin-top: 0.2rem;
+  border: 0.015rem solid rgb(56, 59, 56);
+}
+.tm-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0.625rem;
+  margin-bottom: 2rem;
+}
+.tm-form label {
+  margin-top: 1.25rem;
+}
+@media (min-device-width: 768px) {
+  .tm-form {
+    padding: 20px;
+  }
+}
