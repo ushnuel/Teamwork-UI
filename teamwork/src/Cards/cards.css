@@ -1,8 +1,9 @@
 .tm-value-card-container {
   margin-top: 3.25rem;
 }
-.tm-value-card {
+.tm-card {
   width: 100%;
+  font-family: Lato, sans-serif;
   margin-top: 1.625rem;
   border-radius: 1rem;
   box-shadow: 0 0.5rem 0.7rem 0 rgba(0, 0, 0, 0.03);
@@ -18,7 +19,6 @@
 .tm-value h1 {
   font-size: 2rem;
   margin: 0;
-  font-family: Lato, sans-serif;
   color: rgb(69, 75, 69);
 }
 .tm-core-value-image {
@@ -26,5 +26,15 @@
   width: 3rem;
 }
 .tm-value-writeup {
+  padding: 0.5rem;
+}
+.tm-article-title {
+  background: rgb(88, 85, 85);
+  color: white;
+}
+.tm-article-read-more {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
   padding: 0.5rem;
 }

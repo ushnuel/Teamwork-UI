@@ -24,7 +24,8 @@
 }
 .tm-form input,
 .tm-form select,
-.tm-form select option {
+.tm-form select option,
+.tm-form textarea {
   padding: 0.625rem 0.5rem;
   margin-top: 0.2rem;
   border: 0.015rem solid rgb(56, 59, 56);
