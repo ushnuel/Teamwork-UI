@@ -1,5 +1,7 @@
 .tm-header h1 {
-  font-family: Lato, serif;
+  font-family: Roboto, sans-serif;
   text-align: center;
   margin: 0;
+  font-weight: normal;
+  color: rgb(44, 42, 42);
 }

@@ -1,0 +1,24 @@
+.tm-article-body {
+  box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.2);
+  padding: 0.8rem;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  font-family: Roboto, sans-serif;
+  color: rgb(44, 42, 42);
+}
+.tm-comment-div {
+  margin-bottom: 5rem;
+}
+.tm-article-comments {
+  padding: 0.5rem;
+  box-sizing: border-box;
+  box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+}
+.tm-comment {
+  height: 4rem;
+}
+.tm-comment-details span {
+  font-weight: bold;
+}

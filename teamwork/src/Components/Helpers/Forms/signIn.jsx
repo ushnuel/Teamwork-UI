@@ -68,7 +68,7 @@ class SignIn extends Store {
             name='email'
             required
             onBlur={this.InputFieldHandler}
-            onChange={this.emailHandler}
+            onChange={this.onChangeHandler}
             value={this.state.email}
           />
           <small>Please provide a valid email</small>
@@ -82,7 +82,7 @@ class SignIn extends Store {
             name='password'
             value={this.state.password}
             required
-            onChange={this.passwordHandler}
+            onChange={this.onChangeHandler}
             onBlur={this.InputFieldHandler}
           />
           <small>Please provide a valid password</small>

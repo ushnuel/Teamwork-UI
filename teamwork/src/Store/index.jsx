@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import utils from './utils';
 import checkInput from '../Components/Helpers/Forms/checkInput';
 import '../Components/Helpers/Forms/form.css';
 
@@ -29,15 +30,18 @@ class Form extends Component {
     }
     return token;
   };
+  getOneHandler = (url) => {
+    const response = fetch(
+      url,
+      utils('GET', 'application/json', null, this.setToken()),
+    );
+    return response;
+  };
   getAllHandler = (url) => {
-    const init = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.setToken()}`,
-      },
-    };
-    const response = fetch(url, init);
+    const response = fetch(
+      url,
+      utils('GET', 'application/json', null, this.setToken()),
+    );
     return response;
   };
   postHandler = (data, url, event, form) => {
@@ -48,15 +52,10 @@ class Form extends Component {
       contentType = undefined;
     }
     event.preventDefault();
-    const fetchData = {
-      method: 'POST',
-      body: `${body}`,
-      headers: {
-        'Content-Type': `${contentType}`,
-        Authorization: `Bearer ${this.setToken()}`,
-      },
-    };
-    const response = fetch(url, fetchData);
+    const response = fetch(
+      url,
+      utils('POST', contentType, body, this.setToken()),
+    );
     return response;
   };
   render() {
