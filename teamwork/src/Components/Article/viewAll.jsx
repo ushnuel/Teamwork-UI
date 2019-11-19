@@ -3,6 +3,7 @@ import Store from '../../Store';
 import ArticleCard from '../../Cards/articleCard';
 import Header from '../Helpers/Header/header';
 import Spinner from '../Helpers/Spinner';
+import ErrorPage from '../Helpers/Utils/errorPage';
 
 const article = new Store();
 class ViewAllArticles extends Store {
@@ -32,26 +33,29 @@ class ViewAllArticles extends Store {
       });
   };
   selectArticleHandler = (id) => {
-    console.log(id);
+    this.props.history.push('/articles/' + id);
   };
   render() {
     let articles = null;
-    if (this.state.articles) {
-      articles = this.state.articles.map((article) => {
-        return (
-          <ArticleCard
-            title={article.title}
-            key={article.id}
-            id={article.id}
-            article={article.article}
-            Onclick={() => this.selectArticleHandler(article.id)}
-          />
-        );
-      });
+    if (this.state.errorResponse) {
+      articles = <ErrorPage error={this.state.errorResponse.error} />;
     } else {
-      articles = <Spinner />;
+      if (this.state.articles) {
+        articles = this.state.articles.map((article) => {
+          return (
+            <ArticleCard
+              title={article.title}
+              key={article.id}
+              id={article.id}
+              article={article.article}
+              Onclick={() => this.selectArticleHandler(article.id)}
+            />
+          );
+        });
+      } else {
+        articles = <Spinner />;
+      }
     }
-
     return (
       <>
         <section className='tm-content'>

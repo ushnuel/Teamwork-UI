@@ -8,6 +8,27 @@
 .tm-form input:focus {
   border: none;
 }
+.tm-error-info {
+  width: 100%;
+  font-family: Lato, sans-serif;
+  color: rgb(39, 37, 37);
+  text-align: center;
+  box-shadow: 0 0.5rem 0.6rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 1.625rem;
+  padding: 0.6rem;
+  box-sizing: border-box;
+  margin-top: 2.5rem;
+}
+.tm-error-info h1 {
+  font-size: 3rem;
+}
+.tm-error-info a {
+  color: rgb(255, 0, 221);
+}
+.tm-err-msg {
+  color: rgb(206, 45, 45);
+  font-weight: bold;
+}
 .tm-error-class,
 .tm-success-class {
   position: relative;

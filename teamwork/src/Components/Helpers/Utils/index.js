@@ -3,7 +3,6 @@ import React from 'react';
 const handleResponse = (errorResponse, successResponse) => {
   let response = null;
   if (errorResponse) {
-    console.log('ERROR RESPONSE::', errorResponse);
     response = (
       <div className='tm-error-class'>{errorResponse.error.toLowerCase()}</div>
     );
