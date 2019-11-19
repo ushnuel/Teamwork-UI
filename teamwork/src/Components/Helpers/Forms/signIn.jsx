@@ -22,11 +22,8 @@ class SignIn extends Form {
     this._isMounted = true;
     this.timeOutHandler();
   }
-  emailHandler = (event) => {
-    this.setState({ email: event.target.value });
-  };
-  passwordHandler = (event) => {
-    this.setState({ password: event.target.value });
+  onChangeHandler = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
   InputFieldHandler = () => {
     const email = document.getElementById('email');
@@ -68,6 +65,7 @@ class SignIn extends Form {
           <input
             type='email'
             id='email'
+            name='email'
             required
             onBlur={this.InputFieldHandler}
             onChange={this.emailHandler}
@@ -81,6 +79,7 @@ class SignIn extends Form {
           <input
             type='password'
             id='password'
+            name='password'
             value={this.state.password}
             required
             onChange={this.passwordHandler}

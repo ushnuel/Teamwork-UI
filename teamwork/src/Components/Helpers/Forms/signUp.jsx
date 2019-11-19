@@ -22,29 +22,8 @@ class SignUp extends Form {
     this._isMounted = false;
     this.url = 'http://localhost:5000/api/v1/auth/create-user';
   }
-  emailHandler = (event) => {
-    this.setState({ email: event.target.value });
-  };
-  passwordHandler = (event) => {
-    this.setState({ password: event.target.value });
-  };
-  jobroleHandler = (event) => {
-    this.setState({ jobRole: event.target.value });
-  };
-  genderHandler = (event) => {
-    this.setState({ gender: event.target.value });
-  };
-  departmentHandler = (event) => {
-    this.setState({ department: event.target.value });
-  };
-  addressHandler = (event) => {
-    this.setState({ address: event.target.value });
-  };
-  firstnameHandler = (event) => {
-    this.setState({ firstname: event.target.value });
-  };
-  lastnameHandler = (event) => {
-    this.setState({ lastname: event.target.value });
+  onChangeHandler = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
   onsubmitHandler = (event) => {
     const properties = this.removeProps(this.state);
@@ -99,10 +78,11 @@ class SignUp extends Form {
           </label>
           <input
             type='email'
+            name='email'
             id='email'
             required
             onBlur={this.InputFieldHandler}
-            onChange={this.emailHandler}
+            onChange={this.onChangeHandler}
             value={this.state.email}
           />
           <small>Email address is required</small>
@@ -113,9 +93,10 @@ class SignUp extends Form {
           <input
             type='password'
             id='password'
+            name='password'
             value={this.state.password}
             required
-            onChange={this.passwordHandler}
+            onChange={this.onChangeHandler}
             onBlur={this.InputFieldHandler}
           />
           <small>Password field must not be empty</small>
@@ -125,10 +106,11 @@ class SignUp extends Form {
           </label>
           <input
             type='text'
+            name='jobRole'
             id='jobrole'
             required
             onBlur={this.InputFieldHandler}
-            onChange={this.jobroleHandler}
+            onChange={this.onChangeHandler}
             value={this.state.jobRole}
           />
           <small>You must indicate if employee is an admin or not</small>
@@ -136,32 +118,36 @@ class SignUp extends Form {
           <input
             type='text'
             id='firstname'
+            name='firstname'
             onBlur={this.InputFieldHandler}
-            onChange={this.firstnameHandler}
+            onChange={this.onChangeHandler}
             value={this.state.firstname}
           />
           <label htmlFor='lastname'>Last Name</label>
           <input
             type='text'
             id='lastname'
+            name='lastname'
             onBlur={this.InputFieldHandler}
-            onChange={this.lastnameHandler}
+            onChange={this.onChangeHandler}
             value={this.state.lastname}
           />
           <label htmlFor='address'>Address</label>
           <input
             type='text'
             id='address'
+            name='address'
             onBlur={this.InputFieldHandler}
-            onChange={this.addressHandler}
+            onChange={this.onChangeHandler}
             value={this.state.address}
           />
           <label htmlFor='firstname'>Department</label>
           <input
             type='text'
             id='department'
+            name='department'
             onBlur={this.InputFieldHandler}
-            onChange={this.departmentHandler}
+            onChange={this.onChangeHandler}
             value={this.state.department}
           />
           <label htmlFor='gender'>Gender</label>
@@ -169,7 +155,7 @@ class SignUp extends Form {
             name='gender'
             id='gender'
             onBlur={this.InputFieldHandler}
-            onChange={this.genderHandler}
+            onChange={this.onChangeHandler}
           >
             <option value='selectOption'>Select your gender</option>
             <option value='male'>Male</option>

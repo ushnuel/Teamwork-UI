@@ -1,29 +1,30 @@
 import React from 'react';
 import Form from './Form';
 import HandleResponse from '../Utils';
-const article = new Form();
+const gif = new Form();
 
-class Article extends Form {
+class Gif extends Form {
   constructor(props) {
     super(props);
     this.state = {
-      article: '',
+      image: '',
       title: '',
       success: false,
       errorResponse: '',
       successResponse: '',
     };
     this._isMounted = false;
-    this.url = 'http://localhost:5000/api/v1/articles';
+    this.url = 'http://localhost:5000/api/v1/gifs';
   }
   onChangeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
   onsubmitHandler = (event) => {
-    const properties = this.removeProps(this.state);
-    const data = { ...properties };
-    article
-      .postHandler(data, this.url, event)
+    const form = new FormData();
+    form.append('title', this.state.title);
+    form.append('image', this.state.image);
+    gif
+      .postHandler(undefined, this.url, event, form)
       .then((response) => this.check(response))
       .then((data) => {
         return this.setState({ success: false, successResponse: { ...data } });
@@ -34,10 +35,7 @@ class Article extends Form {
         });
       });
     this.setState({ success: true });
-    this.setState({
-      title: '',
-      article: '',
-    });
+    this.setState({ title: '' });
   };
   componentDidMount() {
     this._isMounted = true;
@@ -45,48 +43,50 @@ class Article extends Form {
   }
   InputFieldHandler = () => {
     const title = document.getElementById('title');
-    const article = document.getElementById('article');
+    const image = document.getElementById('image');
     const submitBtn = document.getElementById('button');
     const smallTags = document.getElementsByTagName('small');
-    this.InputHandler([title, article], submitBtn, smallTags);
+    this.InputHandler([title, image], submitBtn, smallTags);
   };
   render() {
     const { errorResponse, successResponse } = this.state;
     const response = HandleResponse(errorResponse, successResponse);
-    const submitText = !this.state.success
-      ? 'Create Article'
-      : 'Please wait ...';
+    const submitText = !this.state.success ? 'Post Gif' : 'Please wait ...';
     return (
       <>
         {response ? <div id='tm-response'>{response}</div> : null}
-        <form className='tm-form' onSubmit={this.onsubmitHandler}>
+        <form
+          id='gifForm'
+          className='tm-form'
+          onSubmit={this.onsubmitHandler}
+          encType='multipart/form-data'
+        >
           <label htmlFor='title'>
-            Article Title <span>*</span>
+            Gif Title <span>*</span>
           </label>
           <input
             type='text'
             id='title'
-            required
             name='title'
+            required
             onBlur={this.InputFieldHandler}
             onChange={this.onChangeHandler}
             value={this.state.title}
           />
-          <small>Please include the title of the article</small>
+          <small>Please include gif title</small>
 
-          <label htmlFor='article'>
-            Article <span>*</span>
+          <label htmlFor='image'>
+            Image/Gif <span>*</span>
           </label>
-          <textarea
-            name='article'
-            id='article'
-            cols='30'
-            rows='10'
-            value={this.state.article}
-            onChange={this.onChangeHandler}
+          <input
+            type='file'
+            required
+            id='image'
+            name='image'
             onBlur={this.InputFieldHandler}
-          ></textarea>
-          <small>Article field must not be empty</small>
+            onChange={this.onChangeHandler}
+          />
+          <small>You must upload an image/gif</small>
 
           <button
             className='tm-btn-primary'
@@ -105,4 +105,4 @@ class Article extends Form {
   }
 }
 
-export default Article;
+export default Gif;

@@ -6,6 +6,7 @@ import SignUp from './Components/Authentication/signup';
 import SignIn from './Components/Authentication/signIn';
 import CreateArticle from './Components/Article/create';
 import Home2 from './Components/Home/home';
+import CreateGif from './Components/Gif/createGif';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path='/auth/create-user' component={SignUp} />
           <Route path='/auth/signin' component={SignIn} />
           <Route path='/articles' component={CreateArticle} />
+          <Route path='/gifs' component={CreateGif} />
         </Router>
       </Layout>
     );

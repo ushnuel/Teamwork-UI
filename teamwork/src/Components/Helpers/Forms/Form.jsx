@@ -40,13 +40,19 @@ class Form extends Component {
     const response = fetch(url, init);
     return response;
   };
-  postHandler = (data, url, event) => {
+  postHandler = (data, url, event, form) => {
+    let contentType = 'application/json';
+    let body = JSON.stringify(data);
+    if (form) {
+      body = form;
+      contentType = undefined;
+    }
     event.preventDefault();
     const fetchData = {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: `${body}`,
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': `${contentType}`,
         Authorization: `Bearer ${this.setToken()}`,
       },
     };
