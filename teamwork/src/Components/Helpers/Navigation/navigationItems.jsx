@@ -7,6 +7,7 @@ const navigationItems = () => (
     <Navigation link='/auth/create-user'>Sign up</Navigation>
     <Navigation link='/auth/signin'>Sign in</Navigation>
     <Navigation link='/articles'>Create Article</Navigation>
+    <Navigation link='/gifs'>Post Gif</Navigation>
   </ul>
 );
 
