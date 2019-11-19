@@ -1,9 +1,9 @@
 import React from 'react';
-import Form from './Form';
+import Store from '../../../Store';
 import HandleResponse from '../Utils';
-const gif = new Form();
+const gif = new Store();
 
-class Gif extends Form {
+class Gif extends Store {
   constructor(props) {
     super(props);
     this.state = {

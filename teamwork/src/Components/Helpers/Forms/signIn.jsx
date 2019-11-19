@@ -1,11 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Form from './Form';
+import Store from '../../../Store';
 import HandleResponse from '../Utils';
 
-const signIn = new Form();
+const signIn = new Store();
 
-class SignIn extends Form {
+class SignIn extends Store {
   constructor(props) {
     super(props);
     this.state = {
