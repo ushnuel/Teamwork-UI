@@ -1,9 +1,9 @@
 import React from 'react';
-import Form from './Form';
+import Store from '../../../Store';
 import HandleResponse from '../Utils';
-const article = new Form();
+const article = new Store();
 
-class Article extends Form {
+class Article extends Store {
   constructor(props) {
     super(props);
     this.state = {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import checkInput from './checkInput';
-import './form.css';
+import checkInput from '../Components/Helpers/Forms/checkInput';
+import '../Components/Helpers/Forms/form.css';
 
 class Form extends Component {
   InputHandler = (elementType, submitButton, smallTags) => {

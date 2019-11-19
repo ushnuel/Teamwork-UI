@@ -13,6 +13,9 @@
 .tm-btn-success {
   background: rgb(28, 189, 28);
 }
+.tm-read-more {
+  font-size: 0.9rem;
+}
 .tm-btn-danger {
   background: rgb(248, 22, 22);
 }
