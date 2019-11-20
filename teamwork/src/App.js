@@ -10,6 +10,7 @@ import CreateGif from './Components/Gif/createGif';
 import ViewAllArticles from './Components/Article/viewAll';
 import ViewOneArticle from './Components/Article/viewOne';
 import EditArticle from './Components/Article/editArticle';
+import DeleteArticle from './Components/Article/deleteArticle';
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
             <Route path='/feeds' component={ViewAllArticles} />
             <Route path='/articles/:id' exact component={ViewOneArticle} />
             <Route path='/articles/:id/edit' component={EditArticle} />
+            <Route path='/articles/:id/delete' component={DeleteArticle} />
           </Switch>
         </Router>
       </Layout>

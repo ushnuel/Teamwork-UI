@@ -5,6 +5,7 @@ import Spinner from '../Helpers/Spinner';
 import ArticleDetail from './detail';
 import Button from '../Helpers/Button/button';
 import Comment from './articleComments';
+import ErrorPage from '../Helpers/Utils/errorPage';
 
 const article = new Store();
 
@@ -40,48 +41,52 @@ class ViewArticle extends Store {
   render() {
     let article = null;
     let comment = null;
-    if (this.state.article) {
-      const { data } = this.state.article;
-      if (data.comments.length <= 0) {
-        comment = 'No comments yet';
-      } else {
-        comment = data.comments.map((comment) => {
-          return <Comment comment={comment} key={comment.commentid} />;
-        });
-      }
-      article = (
-        <section className='tm-content'>
-          <Header name={data.title} />
-          <ArticleDetail article={this.state.article} />
-          <div className='tm-article-body'>{data.article}</div>
-          <div className='tm-comment-div'>
-            <a href={`/articles/${data.id}/comment`}>
-              <Button
-                writeup='Comment on this article'
-                classname='tm-btn-info tm-read-more'
-              />
-            </a>
-          </div>
-          <h2>Comments</h2>
-          {comment}
-          <div className='tm-home-buttons'>
-            <a href={`/articles/${data.id}/delete`}>
-              <Button
-                writeup='Delete Article'
-                classname='tm-btn-danger tm-read-more'
-              />
-            </a>
-            <a href={`/articles/${data.id}/edit`}>
-              <Button
-                writeup='Edit Article'
-                classname='tm-btn-success tm-read-more'
-              />
-            </a>
-          </div>
-        </section>
-      );
+    if (this.state.errorResponse) {
+      article = <ErrorPage error={this.state.errorResponse.error} />;
     } else {
-      article = <Spinner />;
+      if (this.state.article) {
+        const { data } = this.state.article;
+        if (data.comments.length <= 0) {
+          comment = 'No comments yet';
+        } else {
+          comment = data.comments.map((comment) => {
+            return <Comment comment={comment} key={comment.commentid} />;
+          });
+        }
+        article = (
+          <section className='tm-content'>
+            <Header name={data.title} />
+            <ArticleDetail article={this.state.article} />
+            <div className='tm-article-body'>{data.article}</div>
+            <div className='tm-comment-div'>
+              <a href={`/articles/${data.id}/comment`}>
+                <Button
+                  writeup='Comment on this article'
+                  classname='tm-btn-info tm-read-more'
+                />
+              </a>
+            </div>
+            <h2>Comments</h2>
+            {comment}
+            <div className='tm-home-buttons'>
+              <a href={`/articles/${data.id}/delete`}>
+                <Button
+                  writeup='Delete Article'
+                  classname='tm-btn-danger tm-read-more'
+                />
+              </a>
+              <a href={`/articles/${data.id}/edit`}>
+                <Button
+                  writeup='Edit Article'
+                  classname='tm-btn-success tm-read-more'
+                />
+              </a>
+            </div>
+          </section>
+        );
+      } else {
+        article = <Spinner />;
+      }
     }
     return <>{article}</>;
   }
