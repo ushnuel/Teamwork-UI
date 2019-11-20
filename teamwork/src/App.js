@@ -9,6 +9,7 @@ import Home2 from './Components/Home/home';
 import CreateGif from './Components/Gif/createGif';
 import ViewAllArticles from './Components/Article/viewAll';
 import ViewOneArticle from './Components/Article/viewOne';
+import EditArticle from './Components/Article/editArticle';
 
 class App extends Component {
   render() {
@@ -23,7 +24,8 @@ class App extends Component {
             <Route path='/articles' exact component={CreateArticle} />
             <Route path='/gifs' component={CreateGif} />
             <Route path='/feeds' component={ViewAllArticles} />
-            <Route path='/articles/:id' component={ViewOneArticle} />
+            <Route path='/articles/:id' exact component={ViewOneArticle} />
+            <Route path='/articles/:id/edit' component={EditArticle} />
           </Switch>
         </Router>
       </Layout>

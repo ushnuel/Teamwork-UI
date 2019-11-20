@@ -65,13 +65,13 @@ class ViewArticle extends Store {
           <h2>Comments</h2>
           {comment}
           <div className='tm-home-buttons'>
-            <a href={`/articles/${data.id}`}>
+            <a href={`/articles/${data.id}/delete`}>
               <Button
                 writeup='Delete Article'
                 classname='tm-btn-danger tm-read-more'
               />
             </a>
-            <a href={`/articles/${data.id}`}>
+            <a href={`/articles/${data.id}/edit`}>
               <Button
                 writeup='Edit Article'
                 classname='tm-btn-success tm-read-more'

@@ -12,7 +12,7 @@ class Form extends Component {
     if (input) {
       input.style.display = 'none';
     }
-    setTimeout(this.timeOutHandler, 10000);
+    setTimeout(this.timeOutHandler, 20000);
   };
   removeProps = ({ success, errorResponse, successResponse, ...others }) => {
     return others;
@@ -41,6 +41,15 @@ class Form extends Component {
     const response = fetch(
       url,
       utils('GET', 'application/json', null, this.setToken()),
+    );
+    return response;
+  };
+  editHandler = (url, data, event) => {
+    const body = JSON.stringify(data);
+    event.preventDefault();
+    const response = fetch(
+      url,
+      utils('PATCH', 'application/json', body, this.setToken()),
     );
     return response;
   };
