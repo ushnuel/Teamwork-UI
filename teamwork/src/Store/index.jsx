@@ -31,27 +31,24 @@ class Form extends Component {
     return token;
   };
   getOneHandler = (url) => {
-    const response = fetch(
-      url,
-      utils('GET', 'application/json', null, this.setToken()),
-    );
-    return response;
+    return fetch(url, utils('GET', 'application/json', null, this.setToken()));
   };
   getAllHandler = (url) => {
-    const response = fetch(
-      url,
-      utils('GET', 'application/json', null, this.setToken()),
-    );
-    return response;
+    return fetch(url, utils('GET', 'application/json', null, this.setToken()));
   };
   editHandler = (url, data, event) => {
     const body = JSON.stringify(data);
     event.preventDefault();
-    const response = fetch(
+    return fetch(
       url,
       utils('PATCH', 'application/json', body, this.setToken()),
     );
-    return response;
+  };
+  deleteHandler = (url) => {
+    return fetch(
+      url,
+      utils('DELETE', 'application/json', null, this.setToken()),
+    );
   };
   postHandler = (data, url, event, form) => {
     let contentType = 'application/json';
@@ -61,11 +58,7 @@ class Form extends Component {
       contentType = undefined;
     }
     event.preventDefault();
-    const response = fetch(
-      url,
-      utils('POST', contentType, body, this.setToken()),
-    );
-    return response;
+    return fetch(url, utils('POST', contentType, body, this.setToken()));
   };
   render() {
     return <></>;

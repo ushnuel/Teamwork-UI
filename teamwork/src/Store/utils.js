@@ -25,6 +25,12 @@ const Option = (method, contentType, data, setToken) => {
         headers: headers,
       };
       break;
+    case 'DELETE':
+      options = {
+        method: method,
+        headers: headers,
+      };
+      break;
     default:
       break;
   }
