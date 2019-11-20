@@ -8,11 +8,9 @@ const articleCard = ({ title, article, id, Onclick }) => (
     </div>
     <div className='tm-article-content'>{removeStrings(article) + '.....'}</div>
     <div className='tm-article-read-more'>
-      <a href={`/articles/${id}`}>
-        <button className='tm-btn-primary tm-read-more' onClick={Onclick}>
-          Read More
-        </button>
-      </a>
+      <button className='tm-btn-primary tm-read-more' onClick={Onclick}>
+        Read More
+      </button>
     </div>
   </div>
 );

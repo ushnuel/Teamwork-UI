@@ -1,7 +1,7 @@
 import React from 'react';
 import Store from '../../Store';
 import Header from '../Helpers/Header/header';
-import CommentForm from '../Helpers/Forms/articleComment';
+import CommentForm from '../Helpers/Forms/comment';
 import HandleResponse from '../Helpers/Utils';
 
 const article = new Store();

@@ -22,8 +22,15 @@
 .tm-error-info h1 {
   font-size: 3rem;
 }
-.tm-error-info a {
+.tm-error-info a,
+.tm-error-home a {
   color: rgb(255, 0, 221);
+}
+.tm-error-home {
+  padding: 0.5rem;
+  text-align: center;
+  font-family: Lato, sans-serif;
+  color: rgb(44, 42, 42);
 }
 .tm-err-msg {
   color: rgb(206, 45, 45);
@@ -41,7 +48,7 @@
   text-align: center;
 }
 .tm-success-class {
-  background-color: green;
+  background-color: rgb(28, 189, 28);
 }
 .tm-form input,
 .tm-form select,

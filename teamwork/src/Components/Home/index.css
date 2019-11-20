@@ -16,7 +16,8 @@
   color: rgb(28, 189, 28);
 }
 .tm-desc-home h1,
-.tm-interact-home h1 {
+.tm-interact-home h1,
+h3 {
   margin: 0;
 }
 .tm-interact-home {

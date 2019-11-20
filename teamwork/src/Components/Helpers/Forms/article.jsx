@@ -1,108 +1,50 @@
 import React from 'react';
-import Store from '../../../Store';
-import HandleResponse from '../Utils';
-const article = new Store();
 
-class Article extends Store {
-  constructor(props) {
-    super(props);
-    this.state = {
-      article: '',
-      title: '',
-      success: false,
-      errorResponse: '',
-      successResponse: '',
-    };
-    this._isMounted = false;
-    this.url = 'http://localhost:5000/api/v1/articles';
-  }
-  onChangeHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-  onsubmitHandler = (event) => {
-    const properties = this.removeProps(this.state);
-    const data = { ...properties };
-    article
-      .postHandler(data, this.url, event)
-      .then((response) => this.check(response))
-      .then((data) => {
-        return this.setState({ success: false, successResponse: { ...data } });
-      })
-      .catch((error) => {
-        error.json().then((body) => {
-          this.setState({ success: false, errorResponse: { ...body } });
-        });
-      });
-    this.setState({ success: true });
-    this.setState({
-      title: '',
-      article: '',
-    });
-  };
-  componentDidMount() {
-    this._isMounted = true;
-    this.timeOutHandler();
-  }
-  InputFieldHandler = () => {
-    const title = document.getElementById('title');
-    const article = document.getElementById('article');
-    const submitBtn = document.getElementById('button');
-    const smallTags = document.getElementsByTagName('small');
-    this.InputHandler([title, article], submitBtn, smallTags);
-  };
-  render() {
-    const { errorResponse, successResponse } = this.state;
-    const response = HandleResponse(errorResponse, successResponse);
-    const submitText = !this.state.success
-      ? 'Create Article'
-      : 'Please wait ...';
-    return (
-      <>
-        {response ? <div id='tm-response'>{response}</div> : null}
-        <form className='tm-form' onSubmit={this.onsubmitHandler}>
-          <label htmlFor='title'>
-            Article Title <span>*</span>
-          </label>
-          <input
-            type='text'
-            id='title'
-            required
-            name='title'
-            onBlur={this.InputFieldHandler}
-            onChange={this.onChangeHandler}
-            value={this.state.title}
-          />
-          <small>Please include the title of the article</small>
+const articleForm = ({
+  onSubmit,
+  title,
+  onChange,
+  InputFieldHandler,
+  article,
+  submitText,
+}) => (
+  <form className='tm-form' onSubmit={onSubmit}>
+    <label htmlFor='title'>
+      Article Title <span>*</span>
+    </label>
+    <input
+      type='text'
+      id='title'
+      required
+      name='title'
+      onBlur={InputFieldHandler}
+      onChange={onChange}
+      value={title}
+    />
+    <small>Please include the title of the article</small>
 
-          <label htmlFor='article'>
-            Article <span>*</span>
-          </label>
-          <textarea
-            name='article'
-            id='article'
-            cols='30'
-            rows='10'
-            value={this.state.article}
-            onChange={this.onChangeHandler}
-            onBlur={this.InputFieldHandler}
-          ></textarea>
-          <small>Article field must not be empty</small>
+    <label htmlFor='article'>
+      Article <span>*</span>
+    </label>
+    <textarea
+      name='article'
+      id='article'
+      cols='30'
+      rows='10'
+      value={article}
+      onChange={onChange}
+      onBlur={InputFieldHandler}
+    ></textarea>
+    <small>Article field must not be empty</small>
 
-          <button
-            className='tm-btn-primary'
-            id='button'
-            disabled={true}
-            type='submit'
-          >
-            {submitText}
-          </button>
-        </form>
-      </>
-    );
-  }
-  componentWillUnmount() {
-    this._isMounted = false;
-  }
-}
-
-export default Article;
+    <button
+      className='tm-btn-primary'
+      id='button'
+      disabled={true}
+      type='submit'
+    >
+      {submitText}
+    </button>
+  </form>
+);
+export default articleForm;
