@@ -11,6 +11,7 @@ import ViewAllArticles from './Components/Article/viewAll';
 import ViewOneArticle from './Components/Article/viewOne';
 import EditArticle from './Components/Article/editArticle';
 import DeleteArticle from './Components/Article/deleteArticle';
+import CreateArticleComment from './Components/Comment/articleComment';
 
 class App extends Component {
   render() {
@@ -28,6 +29,10 @@ class App extends Component {
             <Route path='/articles/:id' exact component={ViewOneArticle} />
             <Route path='/articles/:id/edit' component={EditArticle} />
             <Route path='/articles/:id/delete' component={DeleteArticle} />
+            <Route
+              path='/articles/:id/comment'
+              component={CreateArticleComment}
+            />
           </Switch>
         </Router>
       </Layout>
