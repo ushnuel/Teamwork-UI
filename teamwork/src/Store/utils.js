@@ -1,6 +1,6 @@
-const Option = (method, contentType, data, setToken) => {
+const Option = (method, data, setToken) => {
   const headers = {
-    'Content-Type': contentType,
+    'Content-Type': 'application/json',
     Authorization: `Bearer ${setToken}`,
   };
   let options = null;

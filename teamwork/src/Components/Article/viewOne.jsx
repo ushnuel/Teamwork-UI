@@ -26,7 +26,7 @@ class ViewArticle extends Store {
     const { id } = this.props.match.params;
     if (id) {
       article
-        .getOneHandler(this.url + id)
+        .getHandler(this.url + id)
         .then((response) => this.check(response))
         .then((data) => {
           this.setState({ article: data });

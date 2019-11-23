@@ -21,7 +21,7 @@ class ViewAllArticles extends Store {
   }
   getArticlesHandler = () => {
     article
-      .getAllHandler(this.url)
+      .getHandler(this.url)
       .then((response) => this.check(response))
       .then((response) => {
         this.setState({ articles: response.data[0] });

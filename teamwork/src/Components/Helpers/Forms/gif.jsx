@@ -3,7 +3,8 @@ import React from 'react';
 const gifForm = ({
   onSubmit,
   InputFieldHandler,
-  onChange,
+  titleChange,
+  imageChange,
   title,
   submitText,
   image,
@@ -23,7 +24,7 @@ const gifForm = ({
       name='title'
       required
       onBlur={InputFieldHandler}
-      onChange={onChange}
+      onChange={titleChange}
       value={title}
     />
     <small>Please include gif title</small>
@@ -35,13 +36,12 @@ const gifForm = ({
       type='file'
       required
       id='image'
-      value={image}
       name='image'
       onBlur={InputFieldHandler}
-      onChange={onChange}
+      onChange={imageChange}
     />
     <small>You must upload an image/gif</small>
-
+    {image}
     <button
       className='tm-btn-primary'
       id='button'

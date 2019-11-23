@@ -30,35 +30,29 @@ class Form extends Component {
     }
     return token;
   };
-  getOneHandler = (url) => {
-    return fetch(url, utils('GET', 'application/json', null, this.setToken()));
-  };
-  getAllHandler = (url) => {
-    return fetch(url, utils('GET', 'application/json', null, this.setToken()));
+  // getOneHandler = (url) => {
+  //   return fetch(url, utils('GET', null, this.setToken()));
+  // };
+  getHandler = (url) => {
+    return fetch(url, utils('GET', null, this.setToken()));
   };
   editHandler = (url, data, event) => {
-    const body = JSON.stringify(data);
     event.preventDefault();
-    return fetch(
-      url,
-      utils('PATCH', 'application/json', body, this.setToken()),
-    );
+    return fetch(url, utils('PATCH', JSON.stringify(data), this.setToken()));
   };
   deleteHandler = (url) => {
-    return fetch(
-      url,
-      utils('DELETE', 'application/json', null, this.setToken()),
-    );
+    return fetch(url, utils('DELETE', null, this.setToken()));
   };
-  postHandler = (data, url, event, form) => {
-    let contentType = 'application/json';
-    let body = JSON.stringify(data);
-    if (form) {
-      body = form;
-      contentType = undefined;
-    }
+  postImageHandler = (url, form) => {
+    return fetch(url, {
+      headers: { Authorization: `Bearer ${this.setToken()}` },
+      body: form,
+      method: 'POST',
+    });
+  };
+  postHandler = (data, url, event) => {
     event.preventDefault();
-    return fetch(url, utils('POST', contentType, body, this.setToken()));
+    return fetch(url, utils('POST', JSON.stringify(data), this.setToken()));
   };
   render() {
     return <></>;

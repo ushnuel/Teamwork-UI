@@ -55,8 +55,8 @@ class CreateArticle extends Store {
     const submitText = !this.state.success ? 'Create' : 'Please wait ...';
     return (
       <>
-        {response ? <div id='tm-response'>{response}</div> : null}
         <Header name='Create Article' />
+        {response ? <div id='tm-response'>{response}</div> : null}
         <ArticleForm
           title={this.state.title}
           article={this.state.article}

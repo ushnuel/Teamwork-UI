@@ -18,15 +18,20 @@ class Gif extends Store {
     this._isMounted = false;
     this.url = 'http://localhost:5000/api/v1/gifs';
   }
-  onChangeHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  titleChangeHandler = (e) => {
+    this.setState({ title: e.target.value });
+  };
+  imageChangeHandler = (e) => {
+    this.setState({
+      image: URL.createObjectURL(e.target.files[0]),
+    });
   };
   onsubmitHandler = (event) => {
-    const form = new FormData();
-    form.append('title', this.state.title);
-    form.append('image', this.state.image);
+    event.preventDefault();
+    const form = document.querySelector('#gifForm');
+    const formData = new FormData(form);
     gif
-      .postHandler(undefined, this.url, event, form)
+      .postImageHandler(this.url, formData)
       .then((response) => this.check(response))
       .then((data) => {
         return this.setState({ success: false, successResponse: { ...data } });
@@ -37,7 +42,7 @@ class Gif extends Store {
         });
       });
     this.setState({ success: true });
-    this.setState({ title: '' });
+    this.setState({ title: '', image: '' });
   };
   componentDidMount() {
     this._isMounted = true;
@@ -54,16 +59,21 @@ class Gif extends Store {
     const { errorResponse, successResponse } = this.state;
     const response = HandleResponse(errorResponse, successResponse);
     const submitText = !this.state.success ? 'Post Gif' : 'Please wait ...';
+    let image = null;
+    image = this.state.image ? (
+      <img src={this.state.image} alt='' className='tm-img-upload' />
+    ) : null;
     return (
       <>
-        {response ? <div id='tm-response'>{response}</div> : null}
         <Header name='Create Gif' />
+        {response ? <div id='tm-response'>{response}</div> : null}
         <GifForm
           submitText={submitText}
-          onChange={this.onChangeHandler}
+          imageChange={this.imageChangeHandler}
+          titleChange={this.titleChangeHandler}
           onSubmit={this.onsubmitHandler}
-          image={this.state.image}
           title={this.state.title}
+          image={image}
           InputFieldHandler={this.InputFieldHandler}
         />
       </>

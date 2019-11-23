@@ -21,7 +21,7 @@ class HomeTwo extends Store {
   }
   getArticlesHandler = () => {
     article
-      .getAllHandler(this.url)
+      .getHandler(this.url)
       .then((response) => this.check(response))
       .then((response) => {
         const articles = response.data[0].splice(0, 3);

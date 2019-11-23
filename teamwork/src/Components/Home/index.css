@@ -1,6 +1,10 @@
 .tm-home {
   margin-bottom: 2.5rem;
 }
+.tm-img-upload {
+  margin-top: 0.5rem;
+  width: 100%;
+}
 .tm-img-home {
   width: 17rem;
 }
