@@ -12,6 +12,7 @@ import ViewOneArticle from './Components/Article/viewOne';
 import EditArticle from './Components/Article/editArticle';
 import DeleteArticle from './Components/Article/deleteArticle';
 import CreateArticleComment from './Components/Comment/articleComment';
+import ViewGif from './Components/Gif/viewOne';
 
 class App extends Component {
   render() {
@@ -24,7 +25,7 @@ class App extends Component {
             <Route path='/auth/create-user' component={SignUp} />
             <Route path='/auth/signin' component={SignIn} />
             <Route path='/articles' exact component={CreateArticle} />
-            <Route path='/gifs' component={CreateGif} />
+            <Route path='/gifs' exact component={CreateGif} />
             <Route path='/feeds' component={ViewAllArticles} />
             <Route path='/articles/:id' exact component={ViewOneArticle} />
             <Route path='/articles/:id/edit' component={EditArticle} />
@@ -33,6 +34,7 @@ class App extends Component {
               path='/articles/:id/comment'
               component={CreateArticleComment}
             />
+            <Route path='/gifs/:id' exact component={ViewGif} />
           </Switch>
         </Router>
       </Layout>

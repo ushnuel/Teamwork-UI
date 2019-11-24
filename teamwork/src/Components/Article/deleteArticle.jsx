@@ -18,7 +18,7 @@ class Article extends Store {
   getArticleHandler = () => {
     const { id } = this.props.match.params;
     if (id) {
-      this.getOneHandler(this.url + id)
+      this.getHandler(this.url + id)
         .then((response) => this.check(response))
         .then((response) => {
           this.setState({
