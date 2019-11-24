@@ -2,34 +2,34 @@ import React from 'react';
 import Store from '../../Store';
 import Header from '../Helpers/Header/header';
 import Spinner from '../Helpers/Spinner';
-import ArticleDetail from './detail';
+import ArticleDetail from '../Article/detail';
 import Button from '../Helpers/Button/button';
-import Comment from './articleComments';
+import Comment from '../Article/articleComments';
 import ErrorPage from '../Helpers/Utils/errorPage';
 
-const article = new Store();
+const gif = new Store();
 
-class ViewArticle extends Store {
+class ViewGif extends Store {
   constructor(props) {
     super(props);
     this.state = {
-      article: '',
+      gif: '',
       errorResponse: '',
     };
-    this.url = 'http://localhost:5000/api/v1/articles/';
+    this.url = 'http://localhost:5000/api/v1/gifs/';
   }
   componentDidMount() {
     this.timeOutHandler();
-    this.viewSpecificArticle();
+    this.viewSpecificGif();
   }
-  viewSpecificArticle = () => {
+  viewSpecificGif = () => {
     const { id } = this.props.match.params;
     if (id) {
-      article
+      gif
         .getHandler(this.url + id)
         .then((response) => this.check(response))
         .then((data) => {
-          this.setState({ article: data });
+          this.setState({ gif: data });
         })
         .catch((error) => {
           error.json().then((body) => {
@@ -39,13 +39,13 @@ class ViewArticle extends Store {
     }
   };
   render() {
-    let article = null;
+    let gif = null;
     let comment = null;
     if (this.state.errorResponse) {
-      article = <ErrorPage error={this.state.errorResponse.error} />;
+      gif = <ErrorPage error={this.state.errorResponse.error} />;
     } else {
-      if (this.state.article) {
-        const { data } = this.state.article;
+      if (this.state.gif) {
+        const { data } = this.state.gif;
         if (data.comments.length <= 0) {
           comment = 'No comments yet';
         } else {
@@ -53,15 +53,15 @@ class ViewArticle extends Store {
             return <Comment comment={comment} key={comment.commentid} />;
           });
         }
-        article = (
+        gif = (
           <section className='tm-content'>
             <Header name={data.title} />
-            <ArticleDetail response={this.state.article} />
-            <div className='tm-article-body'>{data.article}</div>
+            <ArticleDetail response={this.state.gif} />
+            <img src={data.url} alt='' className='tm-img-upload' />
             <div className='tm-comment-div'>
-              <a href={`/articles/${data.id}/comment`}>
+              <a href={`/gifs/${data.id}/comment`}>
                 <Button
-                  writeup='Comment on this article'
+                  writeup='Comment on this gif'
                   classname='tm-btn-info tm-read-more'
                 />
               </a>
@@ -69,27 +69,21 @@ class ViewArticle extends Store {
             <h2>Comments</h2>
             {comment}
             <div className='tm-home-buttons'>
-              <a href={`/articles/${data.id}/delete`}>
+              <a href={`/gifs/${data.id}/delete`}>
                 <Button
-                  writeup='Delete Article'
+                  writeup='Delete Gif'
                   classname='tm-btn-danger tm-read-more'
-                />
-              </a>
-              <a href={`/articles/${data.id}/edit`}>
-                <Button
-                  writeup='Edit Article'
-                  classname='tm-btn-success tm-read-more'
                 />
               </a>
             </div>
           </section>
         );
       } else {
-        article = <Spinner />;
+        gif = <Spinner />;
       }
     }
-    return <>{article}</>;
+    return <>{gif}</>;
   }
 }
 
-export default ViewArticle;
+export default ViewGif;
