@@ -29,6 +29,7 @@ class ViewGif extends Store {
         .getHandler(this.url + id)
         .then((response) => this.check(response))
         .then((data) => {
+          console.log('DATA::', data)
           this.setState({ gif: data });
         })
         .catch((error) => {

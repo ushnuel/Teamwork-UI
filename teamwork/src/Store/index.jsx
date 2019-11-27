@@ -30,9 +30,6 @@ class Form extends Component {
     }
     return token;
   };
-  // getOneHandler = (url) => {
-  //   return fetch(url, utils('GET', null, this.setToken()));
-  // };
   getHandler = (url) => {
     return fetch(url, utils('GET', null, this.setToken()));
   };
