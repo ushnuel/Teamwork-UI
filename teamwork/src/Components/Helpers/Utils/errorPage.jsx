@@ -5,11 +5,10 @@ const errorPage = ({ error }) => (
     <h1>An Error Occurred</h1>
     <h4>We encounted the following error</h4>
     <p className='tm-err-msg'>{error}</p>
-    <h5>Make sure you are logged in</h5>
-    <p>
-      Click <a href='/auth/signin'>HERE</a> to log in if you have not and try
-      again
-    </p>
+    <h5>
+      <span className='tm-color-word'>Hint: </span>
+      Make sure you are logged in
+    </h5>
   </section>
 );
 export default errorPage;

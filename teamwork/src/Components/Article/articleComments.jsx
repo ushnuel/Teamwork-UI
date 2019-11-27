@@ -6,14 +6,7 @@ const articleComment = ({ comment }) => (
     <div className='tm-comment-author'>Emmanuel</div>
     <section className='tm-article-comments'>
       <div className='tm-comment'>{comment.comment}</div>
-      <div className='tm-comment-details'>
-        {/* <span>Date created: </span> */}
-        {dateFormat(comment.createdon, 'mmmm dS, yyyy')}
-        {/* <div>
-        <span>Author: </span>
-        {comment.authorid}
-      </div> */}
-      </div>
+      <div className='tm-comment-details'>{dateFormat(comment.createdon, 'mmmm dS, yyyy')}</div>
     </section>
   </>
 );

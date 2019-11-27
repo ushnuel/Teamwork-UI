@@ -1,8 +1,7 @@
 .tm-article-body {
-  box-shadow: 0 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid rgb(66, 64, 64);
   padding: 0.8rem;
   box-sizing: border-box;
-  border-radius: 1rem;
   font-family: Roboto, sans-serif;
   color: rgb(44, 42, 42);
 }

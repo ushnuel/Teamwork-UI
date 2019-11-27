@@ -60,26 +60,17 @@ class ViewArticle extends Store {
             <div className='tm-article-body'>{data.article}</div>
             <div className='tm-comment-div'>
               <a href={`/articles/${data.id}/comment`}>
-                <Button
-                  writeup='Comment on this article'
-                  classname='tm-btn-info tm-read-more'
-                />
+                <Button writeup='Comment on this article' classname='tm-btn-info tm-read-more' />
               </a>
             </div>
             <h2>Comments</h2>
             {comment}
             <div className='tm-home-buttons'>
               <a href={`/articles/${data.id}/delete`}>
-                <Button
-                  writeup='Delete Article'
-                  classname='tm-btn-danger tm-read-more'
-                />
+                <Button writeup='Delete Article' classname='tm-btn-danger tm-read-more' />
               </a>
               <a href={`/articles/${data.id}/edit`}>
-                <Button
-                  writeup='Edit Article'
-                  classname='tm-btn-success tm-read-more'
-                />
+                <Button writeup='Edit Article' classname='tm-btn-success tm-read-more' />
               </a>
             </div>
           </section>
