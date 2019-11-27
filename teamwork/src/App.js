@@ -14,6 +14,7 @@ import DeleteArticle from './Components/Article/deleteArticle';
 import CreateArticleComment from './Components/Comment/articleComment';
 import ViewGif from './Components/Gif/viewOne';
 import CreateGifComment from './Components/Comment/gifComment';
+import DeleteGif from './Components/Gif/deleteGif';
 
 class App extends Component {
   render() {
@@ -31,12 +32,10 @@ class App extends Component {
             <Route path='/articles/:id' exact component={ViewOneArticle} />
             <Route path='/articles/:id/edit' component={EditArticle} />
             <Route path='/articles/:id/delete' component={DeleteArticle} />
-            <Route
-              path='/articles/:id/comment'
-              component={CreateArticleComment}
-            />
+            <Route path='/articles/:id/comment' component={CreateArticleComment} />
             <Route path='/gifs/:id' exact component={ViewGif} />
             <Route path='/gifs/:id/comment' component={CreateGifComment} />
+            <Route path='/gifs/:id/delete' component={DeleteGif} />
           </Switch>
         </Router>
       </Layout>

@@ -29,7 +29,6 @@ class ViewGif extends Store {
         .getHandler(this.url + id)
         .then((response) => this.check(response))
         .then((data) => {
-          console.log('DATA::', data)
           this.setState({ gif: data });
         })
         .catch((error) => {
@@ -61,20 +60,14 @@ class ViewGif extends Store {
             <img src={data.url} alt='' className='tm-img-upload' />
             <div className='tm-comment-div'>
               <a href={`/gifs/${data.id}/comment`}>
-                <Button
-                  writeup='Comment on this gif'
-                  classname='tm-btn-info tm-read-more'
-                />
+                <Button writeup='Comment on this gif' classname='tm-btn-info tm-read-more' />
               </a>
             </div>
             <h2>Comments</h2>
             {comment}
             <div className='tm-home-buttons'>
               <a href={`/gifs/${data.id}/delete`}>
-                <Button
-                  writeup='Delete Gif'
-                  classname='tm-btn-danger tm-read-more'
-                />
+                <Button writeup='Delete Gif' classname='tm-btn-danger tm-read-more' />
               </a>
             </div>
           </section>
