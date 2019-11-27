@@ -27,9 +27,16 @@
 .tm-comment {
   height: 4rem;
 }
-.tm-comment-details span {
-  font-weight: bold;
+.tm-comment-author {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+.tm-comment-details {
+  color: rgb(255, 0, 179);
 }
 .tm-article-details {
   margin-top: 3rem;
+}
+.tm-details {
+  font-size: 1.2rem;
 }

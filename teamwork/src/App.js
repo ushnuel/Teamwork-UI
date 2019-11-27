@@ -13,6 +13,7 @@ import EditArticle from './Components/Article/editArticle';
 import DeleteArticle from './Components/Article/deleteArticle';
 import CreateArticleComment from './Components/Comment/articleComment';
 import ViewGif from './Components/Gif/viewOne';
+import CreateGifComment from './Components/Comment/gifComment';
 
 class App extends Component {
   render() {
@@ -35,6 +36,7 @@ class App extends Component {
               component={CreateArticleComment}
             />
             <Route path='/gifs/:id' exact component={ViewGif} />
+            <Route path='/gifs/:id/comment' component={CreateGifComment} />
           </Switch>
         </Router>
       </Layout>
