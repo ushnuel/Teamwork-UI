@@ -5,7 +5,7 @@ const articleComment = (props) => (
   <>
     <Comment
       route='articles'
-      url='http://localhost:5000/api/v1/articles/'
+      url='https://teamwork-dev-app.herokuapp.com/api/v1/articles/'
       object={props}
     />
   </>

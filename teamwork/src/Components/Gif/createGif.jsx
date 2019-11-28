@@ -16,7 +16,7 @@ class Gif extends Store {
       successResponse: '',
     };
     this._isMounted = false;
-    this.url = 'http://localhost:5000/api/v1/gifs';
+    this.url = 'https://teamwork-dev-app.herokuapp.com/api/v1/gifs';
   }
   titleChangeHandler = (e) => {
     this.setState({ title: e.target.value });

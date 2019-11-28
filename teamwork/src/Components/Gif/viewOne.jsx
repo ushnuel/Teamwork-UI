@@ -17,7 +17,7 @@ class ViewGif extends Store {
       gif: '',
       errorResponse: '',
     };
-    this.url = 'http://localhost:5000/api/v1/gifs/';
+    this.url = 'https://teamwork-dev-app.herokuapp.com/api/v1/gifs/';
     this.author = User.isGifAuthor();
   }
   componentDidMount() {

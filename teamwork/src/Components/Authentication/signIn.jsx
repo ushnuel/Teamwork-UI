@@ -17,7 +17,7 @@ class SignIn extends Store {
       success: false,
     };
     this._isMounted = false;
-    this.url = 'http://localhost:5000/api/v1/auth/signin';
+    this.url = 'https://teamwork-dev-app.herokuapp.com/api/v1/auth/signin';
   }
   componentDidMount() {
     this._isMounted = true;

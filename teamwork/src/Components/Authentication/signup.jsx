@@ -24,7 +24,7 @@ class SignUp extends Store {
       successResponse: '',
     };
     this._isMounted = false;
-    this.url = 'http://localhost:5000/api/v1/auth/create-user';
+    this.url = 'https://teamwork-dev-app.herokuapp.com/api/v1/auth/create-user';
   }
   onChangeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });

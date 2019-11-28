@@ -13,7 +13,7 @@ class ViewAllArticles extends Store {
       articles: '',
       errorResponse: '',
     };
-    this.url = 'http://localhost:5000/api/v1/feeds';
+    this.url = 'https://teamwork-dev-app.herokuapp.com/api/v1/feeds';
   }
   componentDidMount() {
     this.timeOutHandler();

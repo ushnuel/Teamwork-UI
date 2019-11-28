@@ -5,7 +5,7 @@ const gifComment = (props) => (
   <>
     <Comment
       route='gifs'
-      url='http://localhost:5000/api/v1/gifs/'
+      url='https://teamwork-dev-app.herokuapp.com/api/v1/gifs/'
       object={props}
     />
   </>
