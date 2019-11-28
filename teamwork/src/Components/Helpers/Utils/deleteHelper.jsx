@@ -21,8 +21,9 @@ class DeleteHelper extends Store {
       this.getHandler(this.url + id)
         .then((response) => this.check(response))
         .then((response) => {
+          let id = response.data.articleid || response.data.gifid;
           this.setState({
-            id: response.data.id,
+            id,
           });
         })
         .catch((error) => {

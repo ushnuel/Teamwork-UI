@@ -1,5 +1,5 @@
 .tm-main {
-  margin-top: 4rem;
+  margin-top: 5rem;
   margin-left: 1.2rem;
   margin-right: 1.2rem;
 }
@@ -9,4 +9,11 @@ a {
 }
 ul {
   padding-inline-start: 0;
+}
+
+@media (min-device-width: 770px) {
+  .tm-main {
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
 }

@@ -60,7 +60,7 @@ class ViewAllArticles extends Store {
       <>
         <section className='tm-content'>
           <Header name='All Articles' />
-          {articles}
+          <div className='tm-value-card-container tm-remove-margin'>{articles}</div>
         </section>
       </>
     );

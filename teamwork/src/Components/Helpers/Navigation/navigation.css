@@ -1,5 +1,4 @@
 .tm-navigation {
-  display: block;
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 1rem;
@@ -26,12 +25,18 @@
   margin-left: 1.5rem;
   list-style: none;
 }
-
+.tm-navigation-desktop {
+  display: none;
+}
+.tm-nav-noauth {
+  display: none;
+}
 @media (min-device-width: 500px) {
   .tm-navigation {
     display: flex;
     align-items: center;
     height: 100%;
+    font-size: 0.9rem;
     width: auto;
     margin: 0;
   }
@@ -39,10 +44,14 @@
     flex-flow: row;
     align-items: center;
   }
-
+  .tm-navigation-auth {
+    display: flex;
+  }
   .tm-navigation a {
     color: black;
-    border-bottom: 4px solid transparent;
-    padding: 16px 10px;
+    padding: 0.8rem 1rem;
+  }
+  .tm-navigation-desktop {
+    display: flex;
   }
 }

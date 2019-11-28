@@ -67,7 +67,7 @@ class Gif extends Store {
       <img src={this.state.image} alt='' className='tm-img-upload' />
     ) : null;
     return (
-      <>
+      <section className='tm-form-container'>
         <Header name='Create Gif' />
         {response ? <div id='tm-response'>{response}</div> : null}
         <GifForm
@@ -79,7 +79,7 @@ class Gif extends Store {
           image={image}
           InputFieldHandler={this.InputFieldHandler}
         />
-      </>
+      </section>
     );
   }
   componentWillUnmount() {

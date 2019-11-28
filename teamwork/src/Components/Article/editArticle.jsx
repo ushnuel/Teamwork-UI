@@ -74,7 +74,7 @@ class EditArticle extends Store {
     const response = HandleResponse(errorResponse, successResponse);
     const submitText = !this.state.success ? 'Edit Article' : 'Please wait ...';
     return (
-      <>
+      <section className='tm-form-container'>
         <Header name='Edit Article' />
         {response ? <div id='tm-response'>{response}</div> : null}
         <ArticleForm
@@ -85,7 +85,7 @@ class EditArticle extends Store {
           InputFieldHandler={this.InputFieldHandler}
           onChange={this.onChangeHandler}
         />
-      </>
+      </section>
     );
   }
   componentWillUnmount() {

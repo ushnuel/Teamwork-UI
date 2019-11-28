@@ -11,16 +11,20 @@ import './index.css';
 const home = () => (
   <>
     <section className='tm-home'>
-      <img src={image} alt='teamwork network' className='tm-img-home' />
-      <div className='tm-desc-home'>
-        <h1>
-          Growing <br />
-          <span className='tm-color-word'>Together</span>
-        </h1>
-        <a href='/auth/signin'>
-          <Button classname='tm-btn-info' writeup='Get Started' />
-        </a>
-      </div>
+      <section className='tm-home-greeting'>
+        <div className='tm-img-home'>
+          <img src={image} alt='teamwork network' />
+        </div>
+        <div className='tm-desc-home'>
+          <h1>
+            Growing <br />
+            <span className='tm-color-word'>Together</span>
+          </h1>
+          <a href='/auth/signin'>
+            <Button classname='tm-btn-info' writeup='Get Started' />
+          </a>
+        </div>
+      </section>
       <section className='tm-value-card-container'>
         <Card title='Excellence' icon={excellence}>
           <p>We believe in excellence, it is our watch word</p>

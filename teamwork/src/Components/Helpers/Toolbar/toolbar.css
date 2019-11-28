@@ -34,3 +34,9 @@
   height: 0.188rem;
   background: rgb(255, 0, 179);
 }
+
+@media  (min-device-width: 500px) {
+  .tm-hamburger {
+    display: none;
+  }
+}

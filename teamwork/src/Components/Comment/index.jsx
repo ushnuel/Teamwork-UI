@@ -38,8 +38,9 @@ class Comment extends Store {
         .getHandler(this.url + id)
         .then((response) => this.check(response))
         .then((response) => {
+          const id = response.data.articleid || response.data.gifid;
           this.setState({
-            id: response.data.id,
+            id,
             successResponse: { ...response },
           });
         })
@@ -72,11 +73,9 @@ class Comment extends Store {
   render() {
     const { errorResponse, successResponse } = this.state;
     const response = HandleResponse(errorResponse, successResponse);
-    const submitText = !this.state.success
-      ? 'Create Comment'
-      : 'Please wait ...';
+    const submitText = !this.state.success ? 'Create Comment' : 'Please wait ...';
     return (
-      <>
+      <section className='tm-form-container'>
         <Header name='Create a comment' />
         {response ? <div id='tm-response'>{response}</div> : null}
         <CommentForm
@@ -86,7 +85,7 @@ class Comment extends Store {
           submitText={submitText}
           Onblur={this.InputFieldHandler}
         />
-      </>
+      </section>
     );
   }
 }

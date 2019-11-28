@@ -3,7 +3,7 @@ import Navigation from './navigation';
 import User from '../Utils/authorizeUser';
 import './navigation.css';
 
-const isLoggedIn = User.isLoggedIn();
+let isLoggedIn = User.isLoggedIn();
 const isAdmin = User.isAdmin();
 const navigationItems = () => (
   <ul className='tm-navigation-items'>
@@ -11,7 +11,7 @@ const navigationItems = () => (
       <Navigation link='/auth/create-user'>Create Employee</Navigation>
     </div>
     <Navigation link='/auth/signin'>Sign in</Navigation>
-    <div style={{ display: isLoggedIn }}>
+    <div className={isLoggedIn}>
       <Navigation link='/articles'>Create Article</Navigation>
       <Navigation link='/gifs'>Post Gif</Navigation>
       <Navigation link='/feeds'>View Articles</Navigation>
