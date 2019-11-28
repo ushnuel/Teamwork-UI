@@ -6,6 +6,7 @@ import ArticleDetail from './detail';
 import Button from '../Helpers/Button/button';
 import Comment from './articleComments';
 import ErrorPage from '../Helpers/Utils/errorPage';
+import User from '../Helpers/Utils/authorizeUser';
 
 const article = new Store();
 
@@ -17,6 +18,7 @@ class ViewArticle extends Store {
       errorResponse: '',
     };
     this.url = 'http://localhost:5000/api/v1/articles/';
+    this.isAuthor = User.isArticleAuthor();
   }
   componentDidMount() {
     this.timeOutHandler();
@@ -65,7 +67,7 @@ class ViewArticle extends Store {
             </div>
             <h2>Comments</h2>
             {comment}
-            <div className='tm-home-buttons'>
+            <div className='tm-home-buttons' style={{ display: this.isAuthor }}>
               <a href={`/articles/${data.id}/delete`}>
                 <Button writeup='Delete Article' classname='tm-btn-danger tm-read-more' />
               </a>

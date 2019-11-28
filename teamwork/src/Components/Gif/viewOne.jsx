@@ -6,6 +6,7 @@ import ArticleDetail from '../Article/detail';
 import Button from '../Helpers/Button/button';
 import Comment from '../Article/articleComments';
 import ErrorPage from '../Helpers/Utils/errorPage';
+import User from '../Helpers/Utils/authorizeUser';
 
 const gif = new Store();
 
@@ -17,6 +18,7 @@ class ViewGif extends Store {
       errorResponse: '',
     };
     this.url = 'http://localhost:5000/api/v1/gifs/';
+    this.author = User.isGifAuthor();
   }
   componentDidMount() {
     this.timeOutHandler();
@@ -65,7 +67,7 @@ class ViewGif extends Store {
             </div>
             <h2>Comments</h2>
             {comment}
-            <div className='tm-home-buttons'>
+            <div className='tm-home-buttons' style={{ display: this.author }}>
               <a href={`/gifs/${data.id}/delete`}>
                 <Button writeup='Delete Gif' classname='tm-btn-danger tm-read-more' />
               </a>
