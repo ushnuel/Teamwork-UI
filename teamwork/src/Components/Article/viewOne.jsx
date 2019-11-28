@@ -17,7 +17,7 @@ class ViewArticle extends Store {
       article: '',
       errorResponse: '',
     };
-    this.url = 'http://localhost:5000/api/v1/articles/';
+    this.url = 'https://teamwork-dev-app.herokuapp.com/api/v1/articles/';
     this.isAuthor = User.isArticleAuthor();
   }
   componentDidMount() {
@@ -31,7 +31,6 @@ class ViewArticle extends Store {
         .getHandler(this.url + id)
         .then((response) => this.check(response))
         .then((data) => {
-          console.log('article author', data);
           this.setState({ article: data });
         })
         .catch((error) => {
@@ -49,7 +48,6 @@ class ViewArticle extends Store {
     } else {
       if (this.state.article) {
         const { data } = this.state.article;
-        console.log('comments', data.comments);
         if (data.comments.length <= 0) {
           comment = 'No comments yet';
         } else {
