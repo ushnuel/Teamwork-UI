@@ -27,8 +27,11 @@ class CreateArticle extends Store {
     article
       .postHandler(data, this.url, event)
       .then((response) => this.check(response))
-      .then((data) => {
-        return this.setState({ success: false, successResponse: { ...data } });
+      .then((response) => {
+        this.setState({ success: false, successResponse: { ...response } });
+        const { data } = this.state.successResponse;
+        sessionStorage.setItem('articleAuthor', data.employeeid);
+        return;
       })
       .catch((error) => {
         error.json().then((body) => {

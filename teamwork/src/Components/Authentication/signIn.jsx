@@ -39,9 +39,12 @@ class SignIn extends Store {
     signIn
       .postHandler(data, this.url, event)
       .then((response) => this.check(response))
-      .then((data) => {
-        this.setState({ success: false, successResponse: { ...data } });
-        sessionStorage.setItem('token', this.state.successResponse.data.token);
+      .then((response) => {
+        this.setState({ success: false, successResponse: { ...response } });
+        const { data } = this.state.successResponse;
+        sessionStorage.setItem('token', data.token);
+        sessionStorage.setItem('isAdmin', data.isAdmin);
+        sessionStorage.setItem('currentUser', data.userId);
         this.props.history.push('/home');
         return;
       })
