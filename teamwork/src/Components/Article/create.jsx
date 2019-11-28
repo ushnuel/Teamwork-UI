@@ -30,7 +30,7 @@ class CreateArticle extends Store {
       .then((response) => {
         this.setState({ success: false, successResponse: { ...response } });
         const { data } = this.state.successResponse;
-        sessionStorage.setItem('articleAuthor', data.employeeid);
+        localStorage.setItem('articleAuthor', data.employeeid);
         return;
       })
       .catch((error) => {
@@ -57,7 +57,7 @@ class CreateArticle extends Store {
     const response = HandleResponse(errorResponse, successResponse);
     const submitText = !this.state.success ? 'Create' : 'Please wait ...';
     return (
-      <>
+      <section className='tm-form-container'>
         <Header name='Create Article' />
         {response ? <div id='tm-response'>{response}</div> : null}
         <ArticleForm
@@ -68,7 +68,7 @@ class CreateArticle extends Store {
           submitText={submitText}
           InputFieldHandler={this.InputFieldHandler}
         />
-      </>
+      </section>
     );
   }
   componentWillUnmount() {

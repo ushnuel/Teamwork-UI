@@ -31,6 +31,7 @@ class ViewArticle extends Store {
         .getHandler(this.url + id)
         .then((response) => this.check(response))
         .then((data) => {
+          console.log('article author', data);
           this.setState({ article: data });
         })
         .catch((error) => {
@@ -48,6 +49,7 @@ class ViewArticle extends Store {
     } else {
       if (this.state.article) {
         const { data } = this.state.article;
+        console.log('comments', data.comments);
         if (data.comments.length <= 0) {
           comment = 'No comments yet';
         } else {
@@ -58,20 +60,23 @@ class ViewArticle extends Store {
         article = (
           <section className='tm-content'>
             <Header name={data.title} />
-            <ArticleDetail response={this.state.article} />
-            <div className='tm-article-body'>{data.article}</div>
+            <div className='tm-article-details'>
+              <ArticleDetail response={this.state.article} />
+              <div className='tm-article-body'>{data.article}</div>
+            </div>
             <div className='tm-comment-div'>
-              <a href={`/articles/${data.id}/comment`}>
+              <a href={`/articles/${data.articleid}/comment`}>
                 <Button writeup='Comment on this article' classname='tm-btn-info tm-read-more' />
               </a>
             </div>
-            <h2>Comments</h2>
-            {comment}
+            <h1>Comments</h1>
+            <div>{comment}</div>
+
             <div className='tm-home-buttons' style={{ display: this.isAuthor }}>
-              <a href={`/articles/${data.id}/delete`}>
+              <a href={`/articles/${data.articleid}/delete`}>
                 <Button writeup='Delete Article' classname='tm-btn-danger tm-read-more' />
               </a>
-              <a href={`/articles/${data.id}/edit`}>
+              <a href={`/articles/${data.articleid}/edit`}>
                 <Button writeup='Edit Article' classname='tm-btn-success tm-read-more' />
               </a>
             </div>

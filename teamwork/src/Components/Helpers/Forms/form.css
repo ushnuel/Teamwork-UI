@@ -72,4 +72,8 @@
   .tm-form {
     padding: 20px;
   }
+  .tm-form-container {
+    width: 25rem;
+    margin: auto;
+  }
 }

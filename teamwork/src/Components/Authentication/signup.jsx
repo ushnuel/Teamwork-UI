@@ -65,7 +65,7 @@ class SignUp extends Store {
     const response = HandleResponse(errorResponse, successResponse);
     const submitText = !this.state.success ? 'Sign Up' : 'Please wait ...';
     return (
-      <>
+      <section className='tm-form-container'>
         {response ? <div id='tm-response'>{response}</div> : null}
         <Header name='Create' />
         <SignUpForm
@@ -82,7 +82,7 @@ class SignUp extends Store {
           firstname={this.state.firstname}
           lastname={this.state.lastname}
         />
-      </>
+      </section>
     );
   }
   componentWillUnmount() {

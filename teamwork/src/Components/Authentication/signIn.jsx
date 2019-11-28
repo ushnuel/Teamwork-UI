@@ -60,7 +60,7 @@ class SignIn extends Store {
     const response = HandleResponse(errorResponse);
     const submitText = !this.state.success ? 'Sign In' : 'Please wait ...';
     return (
-      <>
+      <section className='tm-form-container'>
         {response ? <div id='tm-response'>{response}</div> : null}
         <Header name='Sign In' />
         <SignInForm
@@ -71,7 +71,7 @@ class SignIn extends Store {
           onChange={this.onChangeHandler}
           InputFieldHandler={this.InputFieldHandler}
         />
-      </>
+      </section>
     );
   }
   componentWillUnmount() {

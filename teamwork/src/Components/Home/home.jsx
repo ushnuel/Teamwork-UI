@@ -24,7 +24,7 @@ class HomeTwo extends Store {
       .getHandler(this.url)
       .then((response) => this.check(response))
       .then((response) => {
-        const articles = response.data[0].splice(0, 3);
+        const articles = response.data[0].splice(0, 4);
         this.setState({ articles: articles });
       })
       .catch((error) => {
@@ -66,30 +66,33 @@ class HomeTwo extends Store {
     }
     return (
       <section className='tm-home'>
-        <img src={image} alt='teamwork network' className='tm-img-home' />
-        <div className='tm-interact-home'>
-          <h1>
-            Interact <span className='tm-color-word'>With</span> Your Colleagues
-          </h1>
-          <div className='tm-home-buttons'>
-            <a href='/articles'>
-              <Button
-                classname='tm-btn-info btn-home'
-                writeup='Create Article'
-              />
-            </a>
-            <a href='/gifs'>
-              <Button classname='tm-btn-info btn-home' writeup='Post Gif' />
-            </a>
+        <section className='tm-home-greeting'>
+          <div className='tm-img-home'>
+            <img src={image} alt='teamwork network' />
           </div>
-        </div>
+          <div className='tm-interact-home'>
+            <h1>
+              Interact <span className='tm-color-word'>With</span> <br /> Your Colleagues
+            </h1>
+            <div className='tm-home-buttons'>
+              <a href='/articles'>
+                <Button classname='tm-btn-info btn-home' writeup='Create Article' />
+              </a>
+              <a href='/gifs'>
+                <Button classname='tm-btn-info btn-home' writeup='Post Gif' />
+              </a>
+            </div>
+          </div>
+        </section>
         <div className='tm-interact-home'>
           <h3>Recently Published articles</h3>
         </div>
-        {articles}
-        <a href='/feeds'>
-          <Button classname='tm-btn-info btn-home' writeup='View More' />
-        </a>
+        <div className='tm-value-card-container tm-remove-margin'>{articles}</div>
+        <div className='tm-center-obj'>
+          <a href='/feeds'>
+            <Button classname='tm-btn-info btn-home' writeup='View More' />
+          </a>
+        </div>
       </section>
     );
   }

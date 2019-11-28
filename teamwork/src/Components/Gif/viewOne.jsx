@@ -58,13 +58,20 @@ class ViewGif extends Store {
         gif = (
           <section className='tm-content'>
             <Header name={data.title} />
-            <ArticleDetail response={this.state.gif} />
-            <img src={data.url} alt='' className='tm-img-upload' />
-            <div className='tm-comment-div'>
-              <a href={`/gifs/${data.id}/comment`}>
-                <Button writeup='Comment on this gif' classname='tm-btn-info tm-read-more' />
-              </a>
+            <div className='tm-article-details'>
+              <ArticleDetail response={this.state.gif} />
+              <div className='tm-article-body'>
+                <div>
+                  <img src={data.url} alt='' className='tm-img-upload' />
+                </div>
+                <div>
+                  <a href={`/gifs/${data.id}/comment`}>
+                    <Button writeup='Comment on this gif' classname='tm-btn-info tm-read-more' />
+                  </a>
+                </div>
+              </div>
             </div>
+
             <h2>Comments</h2>
             {comment}
             <div className='tm-home-buttons' style={{ display: this.author }}>
