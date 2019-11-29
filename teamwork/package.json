@@ -2,7 +2,7 @@
   "name": "teamwork",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ushnuel.github.io/Teamwork-UI",
+  "homepage": "https://ushnuel.github.io/teamwork-ui",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
