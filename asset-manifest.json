@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Teamwork-UI/static/css/main.8d516285.chunk.css",
-    "main.js": "/Teamwork-UI/static/js/main.5ca9115c.chunk.js",
-    "main.js.map": "/Teamwork-UI/static/js/main.5ca9115c.chunk.js.map",
-    "runtime-main.js": "/Teamwork-UI/static/js/runtime-main.80c83bfb.js",
-    "runtime-main.js.map": "/Teamwork-UI/static/js/runtime-main.80c83bfb.js.map",
-    "static/js/2.f69ca63a.chunk.js": "/Teamwork-UI/static/js/2.f69ca63a.chunk.js",
-    "static/js/2.f69ca63a.chunk.js.map": "/Teamwork-UI/static/js/2.f69ca63a.chunk.js.map",
-    "index.html": "/Teamwork-UI/index.html",
-    "precache-manifest.7a35daeffae16694ab4638b114b69bc4.js": "/Teamwork-UI/precache-manifest.7a35daeffae16694ab4638b114b69bc4.js",
-    "service-worker.js": "/Teamwork-UI/service-worker.js",
-    "static/css/main.8d516285.chunk.css.map": "/Teamwork-UI/static/css/main.8d516285.chunk.css.map",
-    "static/media/tm-collaborate.png": "/Teamwork-UI/static/media/tm-collaborate.fcd245f2.png",
-    "static/media/tm-ethics.png": "/Teamwork-UI/static/media/tm-ethics.e4835f89.png",
-    "static/media/tm-excellence.png": "/Teamwork-UI/static/media/tm-excellence.3980442a.png",
-    "static/media/tm-passion.png": "/Teamwork-UI/static/media/tm-passion.4cdf8ff7.png",
-    "static/media/tm_network.png": "/Teamwork-UI/static/media/tm_network.d80ae335.png"
+    "main.css": "/teamwork-ui/static/css/main.8d516285.chunk.css",
+    "main.js": "/teamwork-ui/static/js/main.7596e87d.chunk.js",
+    "main.js.map": "/teamwork-ui/static/js/main.7596e87d.chunk.js.map",
+    "runtime-main.js": "/teamwork-ui/static/js/runtime-main.61b19111.js",
+    "runtime-main.js.map": "/teamwork-ui/static/js/runtime-main.61b19111.js.map",
+    "static/js/2.f69ca63a.chunk.js": "/teamwork-ui/static/js/2.f69ca63a.chunk.js",
+    "static/js/2.f69ca63a.chunk.js.map": "/teamwork-ui/static/js/2.f69ca63a.chunk.js.map",
+    "index.html": "/teamwork-ui/index.html",
+    "precache-manifest.81de5c01669585107817273f2620a024.js": "/teamwork-ui/precache-manifest.81de5c01669585107817273f2620a024.js",
+    "service-worker.js": "/teamwork-ui/service-worker.js",
+    "static/css/main.8d516285.chunk.css.map": "/teamwork-ui/static/css/main.8d516285.chunk.css.map",
+    "static/media/tm-collaborate.png": "/teamwork-ui/static/media/tm-collaborate.fcd245f2.png",
+    "static/media/tm-ethics.png": "/teamwork-ui/static/media/tm-ethics.e4835f89.png",
+    "static/media/tm-excellence.png": "/teamwork-ui/static/media/tm-excellence.3980442a.png",
+    "static/media/tm-passion.png": "/teamwork-ui/static/media/tm-passion.4cdf8ff7.png",
+    "static/media/tm_network.png": "/teamwork-ui/static/media/tm_network.d80ae335.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.80c83bfb.js",
+    "static/js/runtime-main.61b19111.js",
     "static/js/2.f69ca63a.chunk.js",
     "static/css/main.8d516285.chunk.css",
-    "static/js/main.5ca9115c.chunk.js"
+    "static/js/main.7596e87d.chunk.js"
   ]
 }
