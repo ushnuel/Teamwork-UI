@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, HashRouter as Router, Switch } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Layout from './Hoc/Layout/layout';
 import Home from './Components/Home';
 import SignUp from './Components/Authentication/signup';
@@ -19,7 +19,7 @@ import DeleteGif from './Components/Gif/deleteGif';
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Layout>
           <Switch>
             <Route path='/' exact component={Home} />
