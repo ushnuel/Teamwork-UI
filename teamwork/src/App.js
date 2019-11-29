@@ -19,7 +19,7 @@ import DeleteGif from './Components/Gif/deleteGif';
 class App extends Component {
   render() {
     return (
-      <Router basename='/'>
+      <Router basename='/teamwork-ui/#'>
         <Layout>
           <Switch>
             <Route path='/' exact component={Home} />
