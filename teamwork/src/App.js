@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, HashRouter as Router, Switch } from 'react-router-dom';
 import Layout from './Hoc/Layout/layout';
 import Home from './Components/Home';
 import SignUp from './Components/Authentication/signup';
@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <Layout>
-        <Router>
+        <Router basename='/'>
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/home' component={Home2} />
