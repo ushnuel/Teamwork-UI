@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Store from '../../Store';
 import Header from '../Helpers/Header/header';
 import Spinner from '../Helpers/Spinner';
@@ -65,9 +66,9 @@ class ViewGif extends Store {
                   <img src={data.url} alt='' className='tm-img-upload' />
                 </div>
                 <div>
-                  <a href={`/gifs/${data.id}/comment`}>
+                  <Link to={`/gifs/${data.gifid}/comment`}>
                     <Button writeup='Comment on this gif' classname='tm-btn-info tm-read-more' />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -75,9 +76,9 @@ class ViewGif extends Store {
             <h2>Comments</h2>
             {comment}
             <div className='tm-home-buttons' style={{ display: this.author }}>
-              <a href={`/gifs/${data.id}/delete`}>
+              <Link to={`/gifs/${data.gifid}/delete`}>
                 <Button writeup='Delete Gif' classname='tm-btn-danger tm-read-more' />
-              </a>
+              </Link>
             </div>
           </section>
         );

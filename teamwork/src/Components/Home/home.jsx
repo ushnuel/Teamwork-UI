@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import image from '../../Assets/tm_network.png';
 import Spinner from '../Helpers/Spinner';
 import Button from '../Helpers/Button/button';
@@ -13,7 +14,7 @@ class HomeTwo extends Store {
       articles: '',
       errorResponse: '',
     };
-    this.url = 'http://localhost:5000/api/v1/feeds';
+    this.url = 'https://teamwork-dev-app.herokuapp.com/api/v1/feeds';
   }
   componentDidMount() {
     this.timeOutHandler();
@@ -53,10 +54,10 @@ class HomeTwo extends Store {
           return (
             <ArticleCard
               title={article.title}
-              key={article.id}
-              id={article.id}
+              key={article.articleid}
+              id={article.articleid}
               article={article.article}
-              Onclick={() => this.selectArticleHandler(article.id)}
+              Onclick={() => this.selectArticleHandler(article.articleid)}
             />
           );
         });
@@ -89,9 +90,9 @@ class HomeTwo extends Store {
         </div>
         <div className='tm-value-card-container tm-remove-margin'>{articles}</div>
         <div className='tm-center-obj'>
-          <a href='/feeds'>
-            <Button classname='tm-btn-info btn-home' writeup='View More' />
-          </a>
+          <Link to='/feeds'>
+            <Button writeup='View More' classname='tm-btn-info btn-home' />
+          </Link>
         </div>
       </section>
     );

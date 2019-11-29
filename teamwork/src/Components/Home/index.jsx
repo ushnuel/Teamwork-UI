@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import image from '../../Assets/tm_network.png';
 import excellence from '../../Assets/tm-excellence.png';
 import passion from '../../Assets/tm-passion.png';
@@ -20,9 +21,9 @@ const home = () => (
             Growing <br />
             <span className='tm-color-word'>Together</span>
           </h1>
-          <a href='/auth/signin'>
-            <Button classname='tm-btn-info' writeup='Get Started' />
-          </a>
+          <Link to='/auth/signin'>
+            <Button writeup='Get Started' classname='tm-btn-info' />
+          </Link>
         </div>
       </section>
       <section className='tm-value-card-container'>

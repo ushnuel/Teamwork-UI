@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Store from '../../Store';
 import Header from '../Helpers/Header/header';
 import Spinner from '../Helpers/Spinner';
@@ -63,20 +64,20 @@ class ViewArticle extends Store {
               <div className='tm-article-body'>{data.article}</div>
             </div>
             <div className='tm-comment-div'>
-              <a href={`/articles/${data.articleid}/comment`}>
+              <Link to={`/articles/${data.articleid}/comment`}>
                 <Button writeup='Comment on this article' classname='tm-btn-info tm-read-more' />
-              </a>
+              </Link>
             </div>
             <h1>Comments</h1>
             <div>{comment}</div>
 
             <div className='tm-home-buttons' style={{ display: this.isAuthor }}>
-              <a href={`/articles/${data.articleid}/delete`}>
+              <Link to={`/articles/${data.articleid}/delete`}>
                 <Button writeup='Delete Article' classname='tm-btn-danger tm-read-more' />
-              </a>
-              <a href={`/articles/${data.articleid}/edit`}>
+              </Link>
+              <Link to={`/articles/${data.articleid}/edit`}>
                 <Button writeup='Edit Article' classname='tm-btn-success tm-read-more' />
-              </a>
+              </Link>
             </div>
           </section>
         );
