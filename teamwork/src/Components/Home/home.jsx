@@ -44,7 +44,8 @@ class HomeTwo extends Store {
       articles = (
         <div className='tm-error-home'>
           <h4>
-            <a href='/auth/signin'>Log in</a> to view recent articles
+            <Link to='/auth/signin'>Log in</Link>
+            to view recent articles
           </h4>
         </div>
       );
@@ -54,10 +55,10 @@ class HomeTwo extends Store {
           return (
             <ArticleCard
               title={article.title}
-              key={article.articleid}
-              id={article.articleid}
+              key={article.id}
+              id={article.id}
               article={article.article}
-              Onclick={() => this.selectArticleHandler(article.articleid)}
+              Onclick={() => this.selectArticleHandler(article.id)}
             />
           );
         });
@@ -76,12 +77,12 @@ class HomeTwo extends Store {
               Interact <span className='tm-color-word'>With</span> <br /> Your Colleagues
             </h1>
             <div className='tm-home-buttons'>
-              <a href='/articles'>
-                <Button classname='tm-btn-info btn-home' writeup='Create Article' />
-              </a>
-              <a href='/gifs'>
-                <Button classname='tm-btn-info btn-home' writeup='Post Gif' />
-              </a>
+              <Link to='/articles'>
+                <Button writeup='Create Article' classname='tm-btn-info btn-home' />
+              </Link>
+              <Link to='/gifs'>
+                <Button writeup='Create Gif' classname='tm-btn-info btn-home' />
+              </Link>
             </div>
           </div>
         </section>

@@ -19,7 +19,7 @@ import DeleteGif from './Components/Gif/deleteGif';
 class App extends Component {
   render() {
     return (
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename='/'>
         <Layout>
           <Switch>
             <Route path='/' exact component={Home} />
