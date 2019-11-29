@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const navigation = ({ children, link }) => (
   <li className='tm-navigation'>
-    <a href={link}>{children}</a>
+    <Link to={link}>{children}</Link>
   </li>
 );
 
