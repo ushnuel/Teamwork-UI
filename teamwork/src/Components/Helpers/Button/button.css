@@ -25,7 +25,7 @@
 .btn-home {
   font-size: 1.1rem;
 }
-@media (min-device-width: 500px) {
+@media (min-width: 500px) {
   .tm-center-obj {
     margin-top: 0;
     display: flex;

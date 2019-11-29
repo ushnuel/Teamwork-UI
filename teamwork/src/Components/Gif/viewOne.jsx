@@ -7,7 +7,6 @@ import ArticleDetail from '../Article/detail';
 import Button from '../Helpers/Button/button';
 import Comment from '../Article/articleComments';
 import ErrorPage from '../Helpers/Utils/errorPage';
-import User from '../Helpers/Utils/authorizeUser';
 
 const gif = new Store();
 
@@ -19,7 +18,6 @@ class ViewGif extends Store {
       errorResponse: '',
     };
     this.url = 'https://teamwork-dev-app.herokuapp.com/api/v1/gifs/';
-    this.author = User.isGifAuthor();
   }
   componentDidMount() {
     this.timeOutHandler();
@@ -75,7 +73,7 @@ class ViewGif extends Store {
 
             <h2>Comments</h2>
             {comment}
-            <div className='tm-home-buttons' style={{ display: this.author }}>
+            <div className='tm-home-buttons'>
               <Link to={`/gifs/${data.gifid}/delete`}>
                 <Button writeup='Delete Gif' classname='tm-btn-danger tm-read-more' />
               </Link>

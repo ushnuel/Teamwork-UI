@@ -68,7 +68,7 @@
 .tm-form label {
   margin-top: 1.25rem;
 }
-@media (min-device-width: 768px) {
+@media (min-width: 768px) {
   .tm-form {
     padding: 20px;
   }

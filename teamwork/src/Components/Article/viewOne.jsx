@@ -7,7 +7,6 @@ import ArticleDetail from './detail';
 import Button from '../Helpers/Button/button';
 import Comment from './articleComments';
 import ErrorPage from '../Helpers/Utils/errorPage';
-import User from '../Helpers/Utils/authorizeUser';
 
 const article = new Store();
 
@@ -19,7 +18,6 @@ class ViewArticle extends Store {
       errorResponse: '',
     };
     this.url = 'https://teamwork-dev-app.herokuapp.com/api/v1/articles/';
-    this.isAuthor = User.isArticleAuthor();
   }
   componentDidMount() {
     this.timeOutHandler();
@@ -71,7 +69,7 @@ class ViewArticle extends Store {
             <h1>Comments</h1>
             <div>{comment}</div>
 
-            <div className='tm-home-buttons' style={{ display: this.isAuthor }}>
+            <div className='tm-home-buttons'>
               <Link to={`/articles/${data.articleid}/delete`}>
                 <Button writeup='Delete Article' classname='tm-btn-danger tm-read-more' />
               </Link>
