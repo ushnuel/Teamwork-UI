@@ -19,8 +19,8 @@ import DeleteGif from './Components/Gif/deleteGif';
 class App extends Component {
   render() {
     return (
-      <Layout>
-        <Router basename={process.env.PUBLIC_URL}>
+      <Router>
+        <Layout>
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/home' component={Home2} />
@@ -37,8 +37,8 @@ class App extends Component {
             <Route path='/gifs/:id/comment' component={CreateGifComment} />
             <Route path='/gifs/:id/delete' component={DeleteGif} />
           </Switch>
-        </Router>
-      </Layout>
+        </Layout>
+      </Router>
     );
   }
 }
